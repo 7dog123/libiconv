@@ -46,4 +46,4 @@ jobs:
         run: ./generate-standalone.sh
 
       - name: look into directory
-        run: ls /opt/standalone-r13b
+        run: ls /opt
