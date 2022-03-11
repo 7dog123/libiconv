@@ -1,8 +1,8 @@
-ANDROID_NDK_DIR=/Users/palmerc/Development/android-ndk/standalone-r13b
-LIBICONV_PARENT_DIR=${HOME}/Development/dcmtk-compile
+ANDROID_NDK=/opt/standalone-r13b
+LIBICONV_PARENT_DIR=${GITHUB_WORKSPACE}
 LIBICONV_INSTALL_DIR=${LIBICONV_PARENT_DIR}/libiconv
 
-declare -a COMPILE_ARCHITECTURES=("arm" "armv7a" "x86")
+declare -a COMPILE_ARCHITECTURES=("arm" "armv7a" "x86" "x86_64" "arm64-v8a")
 #declare -a COMPILE_ARCHITECTURES=("x86")
 for ARCH in "${COMPILE_ARCHITECTURES[@]}"
 do
@@ -17,6 +17,12 @@ do
             ;;
         "x86" )
             COMPILER_GROUP=x86
+            ;;
+	"arm64-v8a" )
+            COMPILER_GROUP=arm64
+            ;;
+        "x86_64" )
+            COMPILER_GROUP=x86_64
             ;;
     esac
 
@@ -46,6 +52,14 @@ do
             ABI_NAME=x86
             COMPILER_PREFIX=i686-linux-android
             ;;
+	"arm64" )
+            ABI_NAME=arm64-v8a
+            COMPILER=PREFIX=aarch64-linux-android
+            ;;
+        "x86_64" )
+            ABI_NAME=x86_64
+            COMPILER_PREFIX=x86_64-linux-android
+	    ;;
     esac
 
 
@@ -61,7 +75,7 @@ do
    echo "---- Compiling for ${ARCH}"
    ./configure --enable-static --host="${COMPILER_PREFIX}" --prefix="${LIBICONV_INSTALL_DIR}/${ABI_NAME}"
    make clean
-   make -j4
+   make -j2
    make install
 
    unset CC
