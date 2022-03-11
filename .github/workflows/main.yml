@@ -35,7 +35,7 @@ jobs:
          wget https://dl.google.com/android/repository/android-ndk-r13b-linux-x86_64.zip
          unzip android-ndk-r13b-linux-x86_64.zip
          rm -rv *zip
-         mv -r android-ndk-r13b /opt
+         mv -v android-ndk-r13b /opt
 
       - name: stand alone toolchain
         run: generate-standalone.sh
