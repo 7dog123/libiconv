@@ -1,10 +1,10 @@
-#!/bin/bash 
+#!/bin/bash
 
 ANDROID_NDK_DIR=/opt/android-ndk-r13b
-ANDROID_API=19
+ANDROID_API=21
 ANDROID_STL=gnustl
 INSTALL_PREFIX=/opt/standalone-r13b
-declare -a COMPILE_ARCHITECTURES=("arm" "x86")
+declare -a COMPILE_ARCHITECTURES=("arm" "x86" "arm64" "x86_64")
 
 pushd ${ANDROID_NDK_DIR}
 for ARCH in "${COMPILE_ARCHITECTURES[@]}"

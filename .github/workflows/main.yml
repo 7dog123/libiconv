@@ -37,7 +37,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: download android ndk r13b
         run: |
-         wget https://dl.google.com/android/repository/android-ndk-r13b-linux-x86_64.zip
+         wget -q https://dl.google.com/android/repository/android-ndk-r13b-linux-x86_64.zip
          unzip -q android-ndk-r13b-linux-x86_64.zip
          rm -rv *zip
          mv -v android-ndk-r13b /opt
@@ -46,4 +46,4 @@ jobs:
         run: ./generate-standalone.sh
 
       - name: look into directory
-        run: ls /opt
+        run: ls /opt/standalone-r13b-{arm,x86,arm64,x86_64}
