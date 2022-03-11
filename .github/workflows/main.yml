@@ -27,7 +27,12 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: unstall unzip
-        run: sudo apt-get update && sudo apt-get -y install unzip
+        run: |
+         sudo apt-get update
+         sudo apt-get -y install git-core gnupg flex bison build-essential zip \
+         curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 libncurses5 \
+         lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev \
+         libxml2-utils xsltproc unzip fontconfig
 
       # Runs a set of commands using the runners shell
       - name: download android ndk r13b
@@ -39,3 +44,6 @@ jobs:
 
       - name: stand alone toolchain
         run: ./generate-standalone.sh
+
+      - name: look into directory
+        run: ls /opt/standalone-r13b
