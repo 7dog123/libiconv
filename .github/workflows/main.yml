@@ -46,4 +46,4 @@ jobs:
         run: ./generate-standalone.sh
 
       - name: look into directory
-        run: ls /opt/standalone-r13b-{arm,x86,arm64,x86_64}
+        run: ls /opt/standalone-r13b-{arm,x86,arm64,x86_64}/{include,sysroot,tools}
