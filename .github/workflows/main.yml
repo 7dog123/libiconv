@@ -38,7 +38,7 @@ jobs:
         run: tar -xf libiconv-1.14.tar.gz
 
       - name: replace old config.{guess,sub} with new config.{guess,sub} files
-        run: cp -r config.{guess,sub} libiconv-1.14
+        run: cp -rv config.{guess,sub} libiconv-1.14
 
       # Runs a set of commands using the runners shell
       - name: download android ndk r13b
