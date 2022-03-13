@@ -69,17 +69,9 @@ do
     export STRIP=${ANDROID_NDK_BIN}/${COMPILER_PREFIX}-strip
 
    echo "---- Compiling for ${ARCH}"
-   ./configure --enable-static --prefix="${LIBICONV_INSTALL_DIR}/${ABI_NAME}"
+   ./configure --enable-static --host="${COMPILER_PREFIX}" --prefix="${LIBICONV_INSTALL_DIR}/${ABI_NAME}"
    make clean
    make -j2
    make install
 
-   unset CC
-   unset CPP
-   unset CXX
-   unset LD
-   unset AR
-   unset AS
-   unset RANLIB
-   unset STRIP
 done
