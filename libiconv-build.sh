@@ -33,10 +33,6 @@ do
     export CFLAGS="--sysroot=${SYSROOT_DIR}"
     export CXXFLAGS="--sysroot=${SYSROOT_DIR}"
 
-    unset ABI_NAME
-    unset COMPILER_PREFIX
-    unset CFLAGS
-    unset LDFLAGS
     case ${ARCH} in
         "arm" )
             ABI_NAME=armeabi
